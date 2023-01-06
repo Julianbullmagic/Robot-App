@@ -4,12 +4,11 @@ const myVideo = document.createElement('video')
 myVideo.muted = true
 
 var peer = new Peer()
-const PORT = process.env.PORT || 5000
 
 const myPeer = new Peer(undefined, {
 	path: '/peerjs',
 	host: '/',
-	port: PORT,
+	port: '5000',
 })
 
 const peers = {}
