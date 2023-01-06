@@ -32,6 +32,24 @@ io.on('connection', (socket) => {
 			socket.to(roomId).broadcast.emit('user-disconnected', userId)
 		})
 	})
+	socket.on('forward', () => {
+		console.log("going forward on server")
+	})
+	socket.on('backward', () => {
+		console.log("going backward on server")
+	})
+	socket.on('right', () => {
+		console.log("going right on server")
+	})
+	socket.on('left', () => {
+		console.log("going left on server")
+	})
+	socket.on('rotateright', () => {
+		console.log("rotating right on server")
+	})
+	socket.on('rotateleft', () => {
+		console.log("rotating left on server")
+	})
 })
 
 const PORT = process.env.PORT || 5000

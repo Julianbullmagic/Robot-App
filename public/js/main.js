@@ -4,11 +4,12 @@ const myVideo = document.createElement('video')
 myVideo.muted = true
 
 var peer = new Peer()
+const PORT = process.env.PORT || 5000
 
 const myPeer = new Peer(undefined, {
 	path: '/peerjs',
 	host: '/',
-	port: '5000',
+	port: PORT,
 })
 
 const peers = {}
@@ -48,9 +49,9 @@ navigator.mediaDevices
 			$('ul').append(`<li >
 								<span class="messageHeader">
 									<span>
-										From 
-										<span class="messageSender">Someone</span> 
-										to 
+										From
+										<span class="messageSender">Someone</span>
+										to
 										<span class="messageReceiver">Everyone:</span>
 									</span>
 
@@ -62,7 +63,7 @@ navigator.mediaDevices
 								</span>
 
 								<span class="message">${message}</span>
-							
+
 							</li>`)
 			scrollToBottom()
 		})
@@ -155,4 +156,33 @@ const setPlayVideo = () => {
 	  <span>Play Video</span>
 	`
 	document.querySelector('.mainVideoButton').innerHTML = html
+}
+
+const forward = () => {
+console.log("going forwards")
+socket.emit('forward')
+}
+
+const backward = () => {
+console.log("going backwards")
+socket.emit('backward')
+}
+
+const left = () => {
+console.log("going left")
+socket.emit('left')
+}
+
+const right = () => {
+console.log("going right")
+socket.emit('right')
+}
+const rotateleft = () => {
+console.log("rotating left")
+socket.emit('rotateleft')
+}
+
+const rotateright = () => {
+console.log("rotating right")
+socket.emit('rotateright')
 }
